@@ -1,0 +1,66 @@
+  vector<string> fullJustify(vector<string>& words, int maxWidth) {
+        int n=words.size();
+        vector<string> v;
+        int t=0,l=0,r=0,c=0;
+        for(int i=0;i<n;i++)
+        {
+            int x=words[i].size();            
+            if(l+x>maxWidth)
+            {
+                c=i-t;
+                if(c==1)
+                {
+                    string s=words[t];                   
+                    while(s.size()<maxWidth)
+                    {
+                        s+=" ";
+                    }
+                    t=i;
+                    l=0;
+                    v.push_back(s);
+                }
+                else
+                {
+                int p=maxWidth-l+1;
+                int a=p/(c-1);
+                int b=p%(c-1);               
+                string s=words[t];
+                t++;
+                while(t<i)
+                {
+                    int y=a;
+                    while(y)
+                    {
+                        s+=" ";
+                        y--;
+                    }
+                    if(b>0)
+                    {
+                        s+=" ";
+                        b--;
+                    }
+                    s+=" "+words[t];                   
+                    t++;
+                }
+                v.push_back(s);
+                l=0;
+                }
+            }
+            c++;
+            l+=x+1;
+        }
+        string s="";
+        s+=words[t];
+        t++;
+        while(t<n)
+        {
+            s+=" "+words[t];
+            t++;
+        }
+        while(s.size()<maxWidth)
+        {
+            s+=" ";
+        }
+        v.push_back(s);
+        return v;
+    }
