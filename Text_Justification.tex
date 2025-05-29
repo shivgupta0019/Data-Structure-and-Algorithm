@@ -21,29 +21,29 @@
                 }
                 else
                 {
-                int p=maxWidth-l+1;
-                int a=p/(c-1);
-                int b=p%(c-1);               
-                string s=words[t];
-                t++;
-                while(t<i)
-                {
-                    int y=a;
-                    while(y)
-                    {
-                        s+=" ";
-                        y--;
-                    }
-                    if(b>0)
-                    {
-                        s+=" ";
-                        b--;
-                    }
-                    s+=" "+words[t];                   
-                    t++;
-                }
-                v.push_back(s);
-                l=0;
+                  int p=maxWidth-l+1;
+                  int a=p/(c-1);
+                  int b=p%(c-1);               
+                  string s=words[t];
+                  t++;
+                  while(t<i)
+                  {
+                      int y=a;
+                      while(y)
+                      {
+                          s+=" ";
+                          y--;
+                      }
+                      if(b>0)
+                      {
+                          s+=" ";
+                          b--;
+                      }
+                      s+=" "+words[t];                   
+                      t++;
+                  }
+                  v.push_back(s);
+                  l=0;
                 }
             }
             c++;
