@@ -1,0 +1,12 @@
+  int hIndex(vector<int>& arr) {
+         int n=arr.size(),t=0;
+        sort(arr.begin(), arr.end());
+        reverse(arr.begin(), arr.end());
+        for(int i=0;i<n;i++){
+            if(arr[i]>=i+1){
+                t=i+1;
+            }
+        }
+
+        return t;
+    }
